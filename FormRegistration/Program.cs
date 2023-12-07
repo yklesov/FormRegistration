@@ -18,6 +18,7 @@ namespace FormRegistration
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddRazorPages();
 
             var app = builder.Build();
 
@@ -29,14 +30,14 @@ namespace FormRegistration
             app.UseStaticFiles();
 
             app.UseRouting();
-                        app.UseAuthentication();;
+            app.UseAuthentication();;
 
-            app.UseAuthorization();
-
+            app.UseAuthorization();            
+            
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-
+            app.MapRazorPages();
             app.Run();
         }
     }
